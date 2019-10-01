@@ -10,7 +10,7 @@ function App() {
       <Toolbar />
       <SideDrawer />
       <Backdrop />
-     <main className='mainContain'> <p>this page csssontent</p></main>
+     <main className='mainContain'> <p>this page content</p></main>
     </div>
   );
 }
