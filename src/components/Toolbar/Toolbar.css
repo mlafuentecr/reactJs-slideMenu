@@ -1,0 +1,36 @@
+.toolbar {
+    position: fixed;
+    width: 100%;
+    height: 55px;
+    top: 0px;
+    left: 0px;
+    background-color: blueviolet;
+    z-index: 99;
+}
+.toolbar__nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.toolBar__logo{
+background-color: aquamarine;
+}
+.toolBar__ItemsWrapper{
+}
+.spacer{
+    flex: 1;
+}
+.toolBar__ItemsWrapper ul{
+    display: flex;
+    justify-content: space-evenly;
+    text-decoration: none;
+    list-style: none;
+    
+}
+.toolBar__ItemsWrapper ul a{
+    margin: 0% 1rem;
+}
+.toolBar__ItemsWrapper ul a:hover,
+.toolBar__ItemsWrapper ul a:active {
+    color: orange;
+}
