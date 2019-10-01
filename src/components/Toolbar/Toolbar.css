@@ -5,7 +5,7 @@
     top: 0px;
     left: 0px;
     background-color: blueviolet;
-    z-index: 99;
+    z-index: 97;
 }
 .toolbar__nav{
     display: flex;
@@ -13,7 +13,9 @@
     justify-content: center;
 }
 .toolBar__logo{
-background-color: aquamarine;
+color: white;
+text-decoration: none;
+margin-left: 0.5rem;
 }
 .toolBar__ItemsWrapper{
 }
@@ -28,6 +30,8 @@ background-color: aquamarine;
     
 }
 .toolBar__ItemsWrapper ul a{
+    color: white;
+    text-decoration: none;
     margin: 0% 1rem;
 }
 .toolBar__ItemsWrapper ul a:hover,
