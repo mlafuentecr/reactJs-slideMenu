@@ -3,12 +3,26 @@
   height: 100%;
   position: fixed;
   top: 0;
-  left: 0;
   width: 70%;
   max-width: 400px;
   z-index: 98;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
   padding-left: 0;
+
+}
+.close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-weight: bolder;
+  font-size: 2em;
+  color: #481676;
+  border: solid 1px #481676;
+  border-radius: 5px;
+  padding: 0px 10px 5px 10px;
+  height: auto;
+  display: flex;
+  box-sizing: border-box;
 }
 .sideDrawer ul{
   display: flex;
@@ -49,4 +63,28 @@
   align-content: center;
   align-items: center;
   padding-left: 3rem;
+}
+
+
+
+.alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1300ms, transform 1300ms;
+  -webkit-transition: opacity 1300ms, transform 1300ms;
+  -moz-transition: opacity 1300ms, transform 1300ms;
+  -ms-transition: opacity 1300ms, transform 1300ms;
+  -o-transition: opacity 1300ms, transform 1300ms;
+}
+.alert-exit {
+  opacity: 1;
+}
+.alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1300ms, transform 1300ms;
 }

@@ -1,6 +1,7 @@
-html{
+html, .container, div#root{
   height: 100%;
 }
+
 body{
   margin: 0;
   padding: 0;

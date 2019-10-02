@@ -2,7 +2,7 @@ import React from 'react';
 
 const Logo = props =>(
   <a  id='logo' href="/">
-  The Logo
+  The Logos
   </a>
 );
 
