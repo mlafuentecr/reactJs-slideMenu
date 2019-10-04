@@ -5,19 +5,23 @@ import Toolbar from './components/Toolbar/Toolbar';
 import SideDrawer from './components/sideDrawer/sideDrawer'
 import Backdrop from './components/backDrop/Backdrop'
 import {useSpring, animated} from 'react-spring'
-import {Transition} from 'react-spring/renderprops'
+
 
 
 function App() {
 
-  const props = useSpring({opacity: 1, from: {opacity: 0}})
-  const animate = useSpring({opacity: 1, from: {opacity: 0}})
+  
 
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
   const drawerToggleHandler = () => setSideDrawerOpen(!sideDrawerOpen);
 
-  
-  
+  const values = useSpring({opacity: 1, duration:500, from: {opacity: 0}})
+  const animate1 = useSpring({
+    opacity: sideDrawerOpen ? 1 : 0, 
+    delay: 0.2,
+    duration:5000,
+    })
+
   let sideDrawer;
   let backdrop;
 
@@ -28,23 +32,18 @@ function App() {
   }
     
   return (
-    <animated.div style={props}>
+  
       <div className='container'>
         <Toolbar clickHandler={drawerToggleHandler} />
-
-        <Transition
-        items={'null'}
-        from={{ position: 'absolute', opacity: 0 }}
-        enter={{ opacity: 1 }}
-        leave={{ opacity: 0 }}>
-
-      {sideDrawer },{backdrop}
-     </Transition>
-
+       
+        <animated.div style={animate1}>
+          {sideDrawer }
+          {backdrop}
+      </animated.div>
 
       <main className='mainContain'> <p>this page content</p></main>
       </div>
-      </animated.div>
+     
   )
 
 }
