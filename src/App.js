@@ -1,42 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 import Toolbar from './components/Toolbar/Toolbar';
 import SideDrawer from './components/sideDrawer/sideDrawer'
 import Backdrop from './components/backDrop/Backdrop'
+import {useSpring, animated} from 'react-spring'
+import {Transition} from 'react-spring/renderprops'
 
 
+function App() {
 
-class App extends React.Component {
-    
-   /* 1 Creo un objeto state*/ 
-   state = {
-      sideDrawerOpen: false,
-    }
+  const props = useSpring({opacity: 1, from: {opacity: 0}})
+  const animate = useSpring({opacity: 1, from: {opacity: 0}})
 
-    drawerToggleHandler = () =>{
-      this.setState((prevState) => {
-        return {sideDrawerOpen: !prevState.sideDrawerOpen};
-      })
-    }
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+  const drawerToggleHandler = () => setSideDrawerOpen(!sideDrawerOpen);
 
-  render(){
-    let sideDrawer;
-    let backdrop;
-    if(this.state.sideDrawerOpen){
-      sideDrawer  = <SideDrawer  drawerState={this.state.sideDrawerOpen} clickHandler={this.drawerToggleHandler}/>
-      backdrop    = <Backdrop clickHandler={this.drawerToggleHandler}/>
-    }
+  
+  
+  let sideDrawer;
+  let backdrop;
+
+
+  if(sideDrawerOpen){
+    sideDrawer  = <SideDrawer  drawerState={sideDrawerOpen} clickHandler={drawerToggleHandler}/>
+    backdrop    = <Backdrop clickHandler={drawerToggleHandler}/>
+  }
     
   return (
-    <div className='container'>
-      <Toolbar clickHandler={this.drawerToggleHandler} />
-      {sideDrawer}
-      {backdrop}
-     <main className='mainContain'> <p>this page content</p></main>
-    </div>
+    <animated.div style={props}>
+      <div className='container'>
+        <Toolbar clickHandler={drawerToggleHandler} />
+
+        <Transition
+        items={'null'}
+        from={{ position: 'absolute', opacity: 0 }}
+        enter={{ opacity: 1 }}
+        leave={{ opacity: 0 }}>
+
+      {sideDrawer },{backdrop}
+     </Transition>
+
+
+      <main className='mainContain'> <p>this page content</p></main>
+      </div>
+      </animated.div>
   )
-}
+
 }
 
 export default App;

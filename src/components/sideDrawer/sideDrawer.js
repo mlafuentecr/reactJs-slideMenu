@@ -3,9 +3,9 @@ import './SideDrawer.css'
 import Logo from '../logo'
 
 
+
 const SideDrawer = props =>(
-
-
+  
 
  <nav className='sideDrawer '>
  <div className="close"  onClick={props.clickHandler} >x</div>
